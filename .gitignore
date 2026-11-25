@@ -1,0 +1,23 @@
+# Dependencies (restored with `npm install`)
+node_modules/
+
+# Build output (restored with `npm run build`)
+dist/
+
+# Environment files with secrets (API keys, passwords)
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Claude Code local settings
+.claude/settings.local.json
