@@ -1,0 +1,59 @@
+/* Design tokens: change a value here and it updates the whole site. */
+/* All fonts are loaded here, so the pages don't need their own font links. */
+@import url("https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500&display=swap");
+
+:root {
+  /* Colors */
+  --color-bg: #0f2a1d;            /* dark green page background */
+  --color-surface: #163a28;       /* cards, inputs */
+  --color-text: #f3efe6;          /* main text (cream) */
+  --color-text-muted: #b9c7bb;
+  --color-accent: #e8b4b8;        /* blush pink: links, hover, focus */
+  --color-border: rgba(243, 239, 230, 0.2);
+
+  /* Typography */
+  --font-heading: "Pinyon Script", "Brush Script MT", cursive;
+  --font-body: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-menu: "Montserrat", "Segoe UI", system-ui, sans-serif;
+  --font-size-menu: 1.15rem;
+  --letter-spacing-menu: 0.2em;
+  --font-size-base: 1.4rem;                    /* body text (serif looks small, so larger) */
+  --font-size-lg: 1.25rem;
+  --font-size-highlight: 2rem;                 /* emphasized lines of text */
+  --font-size-xl: clamp(2.75rem, 8vw, 4rem);   /* page titles */
+  --font-size-display: clamp(5.5rem, 16vw, 8rem);   /* biggest script size */
+  --font-size-title: var(--font-size-display);      /* site title "Jasna Flower Studio" */
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+
+  /* Misc */
+  --radius: 8px;
+  --transition: 200ms ease;
+  --content-width: 1100px;
+}
+
+/* Tablets and phones: smaller text sizes (everything else follows these tokens). */
+@media (max-width: 768px) {
+  :root {
+    --font-size-base: 1.25rem;
+    --font-size-highlight: 1.6rem;
+    --font-size-menu: 1rem;
+    --letter-spacing-menu: 0.12em;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-base: 1.15rem;
+    --font-size-highlight: 1.4rem;
+    --font-size-display: 3.75rem;   /* keeps the long site title to about 2 lines on phones */
+    --font-size-menu: 0.9rem;
+    --letter-spacing-menu: 0.08em;
+    --space-lg: 1.25rem;
+  }
+}

@@ -1,0 +1,35 @@
+/* Home page only: bouquet in the lower left corner, text on the right. */
+.home {
+  --bouquet-width: min(70vw, 105vh);   /* big, but never taller than the window */
+  --bouquet-offset: calc(var(--bouquet-width) * -0.26);   /* pushes the picture slightly off the left and bottom edges */
+  /* Cutout PNG sits on the green background, so it looks like part of the page. */
+  background: var(--color-bg) url("../images/bouquet.png") no-repeat left var(--bouquet-offset) bottom var(--bouquet-offset) / var(--bouquet-width) auto;
+}
+
+/* Closing line stays on one line; its size follows the window width so it always fits. */
+.text-script.text-oneline {
+  white-space: nowrap;
+  font-size: min(3rem, 3vw);
+}
+
+/* Home title starts under the Products menu link (x position set by js/layout.js). */
+.home .page-header { padding-left: var(--title-left, var(--space-lg)); }
+
+.home-text {
+  width: min(50vw, 680px);
+  margin-left: 44vw;          /* where the text column starts (50vw = exact center) */
+  margin-right: 0;
+}
+
+/* Phones and small tablets: bouquet moves under the text, smaller. */
+@media (max-width: 768px) {
+  .home { --bouquet-width: 75vw; }
+  /* On phones the line would be too tiny on one line, so it wraps normally. */
+  .text-script.text-oneline { white-space: normal; font-size: 1.5em; }
+  .home-text {
+    width: auto;
+    margin: 0;
+    /* leave room for the bouquet (image height = 97% of its width) */
+    padding-bottom: calc(var(--bouquet-width) * 0.97);
+  }
+}

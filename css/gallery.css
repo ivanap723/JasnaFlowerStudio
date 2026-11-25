@@ -1,0 +1,185 @@
+/* Gallery page: stacked carousels that scroll slowly by themselves. */
+.carousel { margin-bottom: var(--space-xl); }
+
+.carousel-title {
+  margin: 0 0 var(--space-md);
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: normal;
+  line-height: 1.1;
+}
+
+/* Row with the arrows on both sides of the picture window. */
+.carousel-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0 var(--space-md);    /* small margin so the arrows touch the page edges */
+}
+
+/* The window: pictures fade out at the left and right edges. */
+.carousel-window {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+.carousel-track {
+  display: flex;
+  gap: var(--space-md);
+  width: max-content;
+  padding: var(--space-md) 0;     /* room for the hover glow */
+  will-change: transform;
+}
+
+.carousel-item {
+  flex: none;
+  width: clamp(300px, 40vw, 620px);   /* big pictures that grow with the screen */
+  aspect-ratio: 4 / 3;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;    /* crop favors the top of each photo (0% = top, 50% = middle) */
+  display: block;
+}
+
+.carousel-item { position: relative; cursor: zoom-in; }
+
+/* Hover: strong glow, brighter pictureand a light sweep. */
+.carousel-item:hover,
+.carousel-item:focus-visible {
+  transform: scale(1.06);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 0 14px rgba(255, 255, 255, 0.9),
+    0 0 36px rgba(255, 255, 255, 0.6),
+    0 0 70px rgba(232, 180, 184, 0.55);
+}
+.carousel-item:hover img { filter: brightness(1.12) saturate(1.1); }
+
+/* Light sweep that glides across the picture on hover. */
+.carousel-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.5) 50%, transparent 65%);
+  transform: translateX(-100%);
+  transition: transform 800ms ease;
+}
+.carousel-item:hover::before { transform: translateX(100%); }
+
+/* Enlarged photo (lightbox). */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: var(--space-lg);
+  background: rgba(5, 20, 12, 0.93);
+  animation: lightbox-in 250ms ease;
+}
+.lightbox[hidden] { display: none; }
+.lightbox-image {
+  max-width: 94vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.25);
+}
+.lightbox-close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: box-shadow var(--transition), text-shadow var(--transition);
+}
+.lightbox-close:hover {
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.6);
+}
+/* Previous / next arrows, vertically centered on each side. */
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: box-shadow var(--transition), text-shadow var(--transition);
+}
+.lightbox-arrow:hover {
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.6);
+}
+.lightbox-prev { left: var(--space-md); }
+.lightbox-next { right: var(--space-md); }
+
+@media (max-width: 768px) {
+  .lightbox { padding: var(--space-md); }
+  .lightbox-arrow { width: 40px; height: 40px; font-size: 1.5rem; top: auto; bottom: var(--space-md); transform: none; }
+}
+
+body.lightbox-open { overflow: hidden; }
+
+@keyframes lightbox-in { from { opacity: 0; } to { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-item::before { transition: none; }
+  .lightbox { animation: none; }
+}
+
+/* Round arrow buttons. */
+.carousel-arrow {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: box-shadow var(--transition), text-shadow var(--transition);
+}
+.carousel-arrow:hover {
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.55);
+}
+
+@media (max-width: 768px) {
+  .carousel-row { padding: 0 var(--space-sm); }
+  .carousel-item { width: 78vw; }   /* about one big picture at a time on phones */
+  .carousel-arrow { width: 36px; height: 36px; font-size: 1.1rem; }
+}

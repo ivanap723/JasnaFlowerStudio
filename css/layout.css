@@ -1,0 +1,107 @@
+/* Site header (title) and menu bar. Visible on every page. */
+.site-title {
+  margin: 0;
+  padding: var(--space-lg) var(--space-md) var(--space-md);
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-title);
+  font-weight: normal;
+  line-height: 1.1;
+}
+
+/* Shining title: a bright band of light keeps sweeping across the letters, and the
+   whole title gently glows. The text is painted by the gradient (background-clip). */
+.site-title {
+  background: linear-gradient(105deg, #cfc9b8 0%, #cfc9b8 32%, #ffffff 46%, #ffffff 54%, #cfc9b8 68%, #cfc9b8 100%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: title-shine 5s linear infinite, title-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes title-shine {
+  from { background-position: 150% 0; }
+  to   { background-position: -50% 0; }
+}
+
+@keyframes title-glow {
+  from { filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.15)); }
+  to   { filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.75)); }
+}
+
+/* Visitors who prefer less motion get a calm, solid title. */
+@media (prefers-reduced-motion: reduce) {
+  .site-title {
+    animation: none;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: var(--color-text);
+  }
+}
+
+.menu-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-lg);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Links spread evenly across the free space of the bar. */
+.menu-links {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: var(--space-md);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu-links a {
+  color: #fff;
+  font-family: var(--font-menu);
+  font-size: var(--font-size-menu);
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing-menu);
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: var(--space-xs) 0;
+  border-bottom: 2px solid transparent;
+  transition: text-shadow var(--transition), border-color var(--transition);
+}
+
+/* Hover: a soft white glow. */
+.menu-links a:hover {
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.9), 0 0 16px rgba(255, 255, 255, 0.6);
+}
+
+.menu-links a[aria-current="page"] {
+  border-bottom-color: #fff;
+}
+
+.search-form { display: flex; gap: var(--space-sm); }
+
+.search-form input {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font: inherit;
+}
+
+/* Tablets and phones: links wrap and center, search goes on its own full-width row. */
+@media (max-width: 768px) {
+  .menu-bar { justify-content: center; padding: var(--space-sm) var(--space-md); }
+  .menu-links { flex-basis: 100%; justify-content: center; gap: var(--space-xs) var(--space-md); }
+  .menu-links a { display: inline-block; padding: var(--space-sm) 0; }  /* bigger tap target */
+  .search-form { width: 100%; max-width: 500px; }
+  .search-form input { flex: 1; min-width: 0; }
+}
