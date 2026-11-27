@@ -3,11 +3,12 @@
 const SITE_NAME = "Jasna Flower Studio";
 
 const MENU_ITEMS = [
-  { label: "Home", href: "index.html" },
-  { label: "Gallery", href: "gallery.html" },
-  { label: "Products", href: "products.html" },
-  { label: "Services", href: "services.html" },
-  { label: "Contact", href: "contact.html" },
+  { label: "Početna", href: "index.html" },
+  { label: "Galerija", href: "gallery.html" },
+  { label: "Proizvodi", href: "products.html" },
+  { label: "Usluge", href: "services.html" },
+  { label: "Radionice", href: "workshops.html" },
+  { label: "Kontakt", href: "contact.html" },
 ];
 
 function currentPage() {
@@ -29,8 +30,8 @@ function renderHeader() {
       <nav class="menu-bar" aria-label="Main">
         <ul class="menu-links">${renderMenuLinks()}</ul>
         <form class="search-form" role="search" action="products.html" method="get">
-          <input type="search" name="q" aria-label="Search products" placeholder="Search…">
-          <button class="button" type="submit">Search</button>
+          <input type="search" name="q" aria-label="Pretraga proizvoda" placeholder="Pretraga…">
+          <button class="button" type="submit">Pretraži</button>
         </form>
       </nav>
     </header>`;

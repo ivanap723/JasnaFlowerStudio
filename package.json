@@ -3,9 +3,13 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "start": "node --env-file-if-exists=.env server/server.js"
   },
   "devDependencies": {
     "vite": "^5.4.0"
+  },
+  "dependencies": {
+    "express": "^5.3.0"
   }
 }

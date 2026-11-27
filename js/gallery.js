@@ -15,7 +15,7 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 
 function itemsFor(carousel) {
   return Array.from({ length: carousel.count }, (_, i) => ({
-    src: `images/gallery/${carousel.folder}/${i + 1}.jpg`,
+    src: `../images/gallery/${carousel.folder}/${i + 1}.jpg`,
     alt: `${carousel.title}, photo ${i + 1}`,
   }));
 }

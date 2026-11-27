@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Admin: Porudžbine | Jasna Flower Studio</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <header class="page-header">
+    <h2 class="page-title">Porudžbine</h2>
+  </header>
+  <main class="container">
+    <nav id="admin-nav" class="button-row" aria-label="Admin"></nav>
+
+    <label class="admin-filter">Prikaži:
+      <select id="status-filter">
+        <option value="">Sve porudžbine</option>
+        <option value="pending">Na čekanju</option>
+        <option value="ready">Spremne</option>
+        <option value="completed">Završene</option>
+        <option value="cancelled">Otkazane</option>
+      </select>
+    </label>
+
+    <p id="admin-status" role="status" class="muted"></p>
+    <div id="order-list" class="admin-list"></div>
+  </main>
+  <script src="../js/layout.js"></script>
+  <script src="../js/glitter.js"></script>
+  <script src="../js/admin-common.js"></script>
+  <script src="../js/admin-orders.js"></script>
+</body>
+</html>

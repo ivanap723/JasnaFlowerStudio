@@ -1,0 +1,100 @@
+/* Order pages (wreath, ikebana, biedermeier): questions with photo options. */
+.order-form { display: grid; gap: var(--space-lg); }
+.order-question {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;                     /* lets the grid shrink on small phones */
+}
+.order-question legend {
+  padding: 0;
+  margin-bottom: var(--space-md);
+  font-size: var(--font-size-highlight);
+  font-weight: 600;
+}
+
+/* Message under the buttons ("Hvala! ..." or an error): larger so it is easy to notice. */
+.order-form #form-status {
+  margin: 0;
+  font-size: var(--font-size-highlight);
+  font-weight: 600;
+}
+
+/* Buyer details, pickup/delivery and date (added by js/order-details.js). */
+.order-details { display: grid; gap: var(--space-lg); }
+.order-fields { display: grid; gap: var(--space-md); max-width: 500px; }
+.order-fields label { display: grid; gap: var(--space-xs); }
+.order-fields label[hidden] { display: none; }
+.order-fields .choice { display: flex; align-items: center; gap: var(--space-sm); cursor: pointer; }
+.order-fields input[type="radio"] { width: 1.2rem; height: 1.2rem; accent-color: var(--color-accent); }
+.order-fields input:not([type="radio"]) {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  font: inherit;
+  color-scheme: dark;               /* dark date picker popup */
+}
+.order-fields p { margin: 0; }
+
+.option-grid {
+  display: grid;
+  gap: var(--space-md);
+  grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr));
+}
+
+/* One option = clickable card: photo + label + (hidden) input. */
+.option {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.option:hover { border-color: var(--color-accent); }
+
+/* Native input stays in the page (keyboard and screen readers), but is invisible. */
+.option input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: inherit;
+}
+
+.option-photo {
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: rgba(243, 239, 230, 0.08);   /* shown until the photo is added */
+}
+.option-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Selected / keyboard focus / unavailable states. */
+.option:has(input:checked) {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+.option:has(input:focus-visible) {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+.option:has(input:disabled) {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

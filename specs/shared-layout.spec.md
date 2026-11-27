@@ -25,8 +25,8 @@ Every page shows the site title, then a full-width menu bar, then page content. 
 | Component | Props | Notes |
 |-----------|-------|-------|
 | Site title | `SITE_NAME` | Text "Jasna Flower Studio", `<h1>` |
-| Menu link | `label`, `href` | Defined in `MENU_ITEMS`; Home, Gallery, Products, Services, Contact |
-| Search form | none | GET to `products.html?q=term`; field is prefilled with current `q` |
+| Menu link | `label`, `href` | Defined in `MENU_ITEMS`; Početna, Galerija, Proizvodi, Usluge, Radionice, Kontakt (all pages are in `pages/`, so links are relative) |
+| Search form | none | GET to `products.html?q=term`; field is prefilled with current `q`; placeholder "Pretraga…", button "Pretraži" |
 
 ### States and Interactions
 | Element | State | Behavior |

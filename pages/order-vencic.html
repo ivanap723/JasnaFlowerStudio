@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Porudžbina venčića | Jasna Flower Studio</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/order.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <header class="page-header">
+    <h2 id="product-title" class="page-title page-title-display">Venčić</h2>
+  </header>
+  <main class="container">
+    <form id="order-form" class="order-form">
+      <fieldset id="base-options" class="order-question">
+        <legend>Izaberite osnovu venčića:</legend>
+        <div class="option-grid"></div>
+      </fieldset>
+
+      <fieldset id="color-options" class="order-question">
+        <legend>Izaberite boju detalja na venčiću (maksimalno 2 boje):</legend>
+        <div class="option-grid"></div>
+      </fieldset>
+
+      <div class="button-row">
+        <a class="button" href="products.html">Nazad na proizvode</a>
+        <button class="button" type="submit">Pošalji porudžbinu</button>
+      </div>
+      <p id="form-status" role="status" class="muted"></p>
+    </form>
+  </main>
+  <script src="../js/layout.js"></script>
+  <script src="../js/glitter.js"></script>
+  <script src="../js/stock.js"></script>
+  <script src="../js/order-details.js"></script>
+  <script src="../js/order-vencic.js"></script>
+</body>
+</html>
