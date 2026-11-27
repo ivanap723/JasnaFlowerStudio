@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Admin: E-Mailovi | Jasna Flower Studio</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <header class="page-header">
+    <h2 class="page-title">E-Mailovi</h2>
+  </header>
+  <main class="container">
+    <nav id="admin-nav" class="button-row" aria-label="Admin"></nav>
+
+    <div class="admin-filters">
+      <label class="admin-filter">Period:
+        <select id="period-filter">
+          <option value="30">Poslednjih 30 dana</option>
+          <option value="90">Poslednjih 90 dana</option>
+        </select>
+      </label>
+      <label class="admin-filter">Rezultat:
+        <select id="result-filter">
+          <option value="">Svi</option>
+          <option value="sent">Poslati</option>
+          <option value="mock">Nisu poslati (probni režim)</option>
+          <option value="failed">Nisu poslati (greška)</option>
+        </select>
+      </label>
+      <label class="admin-filter">Porudžbina br.:
+        <input id="order-filter" type="number" min="1" step="1" inputmode="numeric" placeholder="npr. 12">
+      </label>
+    </div>
+
+    <p class="muted">E-Mailovi stariji od 90 dana se brišu automatski.</p>
+    <p id="admin-status" role="status" class="muted"></p>
+    <div id="email-list" class="admin-list email-list"></div>
+  </main>
+  <script src="../js/layout.js"></script>
+  <script src="../js/glitter.js"></script>
+  <script src="../js/admin-common.js"></script>
+  <script src="../js/admin-emails.js"></script>
+</body>
+</html>

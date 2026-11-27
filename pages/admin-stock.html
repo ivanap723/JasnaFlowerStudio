@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Admin: Zalihe | Jasna Flower Studio</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+  <div id="site-header"></div>
+  <header class="page-header">
+    <h2 class="page-title">Zalihe</h2>
+  </header>
+  <main class="container">
+    <nav id="admin-nav" class="button-row" aria-label="Admin"></nav>
+
+    <p class="muted">Količina se smanjuje sa svakom porudžbinom. Opcija se kupcima prikazuje kao nedostupna kada je količina 0 ili kada je isključena.</p>
+    <p id="admin-status" role="status" class="muted"></p>
+
+    <h3 class="card-title">Boje detalja</h3>
+    <ul id="stock-color" class="stock-list"></ul>
+
+    <h3 class="card-title">Osnove</h3>
+    <ul id="stock-base" class="stock-list"></ul>
+  </main>
+  <script src="../js/layout.js"></script>
+  <script src="../js/glitter.js"></script>
+  <script src="../js/admin-common.js"></script>
+  <script src="../js/admin-stock.js"></script>
+</body>
+</html>

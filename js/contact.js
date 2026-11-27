@@ -5,6 +5,6 @@ const status = document.getElementById("form-status");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  status.textContent = "Thank you! We'll get back to you soon.";
+  status.textContent = "Hvala! Javićemo vam se uskoro.";
   form.reset();
 });

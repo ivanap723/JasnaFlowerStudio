@@ -1,12 +1,12 @@
 // Products page: shows the product list and filters it by the ?q= search term.
-// Placeholder data: replace with a real API/database later.
+// Edit the description and price of each product below.
 const PRODUCTS = [
-  { name: "Spring Bouquet", price: 35, description: "Tulips, ranunculus and eucalyptus." },
-  { name: "Red Roses (12)", price: 45, description: "Classic long-stem roses." },
-  { name: "Wedding Centerpiece", price: 80, description: "Seasonal blooms in a ceramic vase." },
-  { name: "Dried Flower Wreath", price: 55, description: "Long-lasting, handmade." },
-  { name: "Orchid Plant", price: 40, description: "Potted phalaenopsis orchid." },
-  { name: "Sunflower Bunch", price: 25, description: "Bright and cheerful." },
+  { name: "Venčić S", price: 20, description: "Prečnik 15cm", orderPage: "order-vencic.html" },
+  { name: "Venčić M", price: 30, description: "Prečnik 25cm", orderPage: "order-vencic.html" },
+  { name: "Venčić L", price: 40, description: "Prečnik 35cm", orderPage: "order-vencic.html" },
+  { name: "Ikebana S", price: 20, description: "Ikebana u čaši", orderPage: "order-ikebana.html" },
+  { name: "Ikebana M", price: 30, description: "Okrugla ikebana prečnika 25cm", orderPage: "order-ikebana.html" },
+  { name: "Ikebana L", price: 40, description: "Okrugla ikebana prečnika 35cm", orderPage: "order-ikebana.html" },
 ];
 
 function renderProducts(products) {
@@ -20,7 +20,11 @@ function renderProducts(products) {
         <h3 class="card-title">${p.name}</h3>
         <p class="muted">${p.description}</p>
         <p><strong>€${p.price}</strong></p>
-        <button class="button" type="button">Add to cart</button>
+        ${
+          p.orderPage
+            ? `<a class="button" href="${p.orderPage}?product=${encodeURIComponent(p.name)}">Naruči</a>`
+            : `<button class="button" type="button">Naruči</button>`
+        }
       </li>`
     )
     .join("");

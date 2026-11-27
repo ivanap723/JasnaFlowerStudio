@@ -9,6 +9,9 @@ dist/
 .env.*
 !.env.example
 
+# Local database (orders, stock): never commit it
+server/data.db*
+
 # Logs
 *.log
 npm-debug.log*

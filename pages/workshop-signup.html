@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prijava na radionicu | Jasna Flower Studio</title>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <style>
+    .signup-form { display: grid; gap: var(--space-md); max-width: 500px; }
+    .signup-form label { display: grid; gap: var(--space-xs); }
+    .signup-form input {
+      padding: var(--space-sm) var(--space-md);
+      background: var(--color-surface);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      font: inherit;
+    }
+  </style>
+</head>
+<body>
+  <div id="site-header"></div>
+  <header class="page-header">
+    <h2 class="page-title">Napravi svoju novogodišnju ikebanu!</h2>
+  </header>
+  <main class="container">
+    <p class="muted">Broj mesta: 6 · Lokacija: Zrenjanin · Kotizacija: 25€</p>
+    <p>Na ovoj radionici naučićeš kako da napraviš svoju novogodišnju ikebanu od nule! Učićemo o samoj strukturi ikebane, o različitim elementima ikebane, kombinaciji boja i tekstura...i što je najvažnije, učićemo da budemo kreativni i da se zabavimo!</p>
+    <p>Radionica je namenjena za mali broj ljudi, kako bi atmosfera bila intimnija i opuštenija.</p>
+    <p>Sav materijal je obezbeđen.</p>
+    <form id="signup-form" class="signup-form">
+      <label>Ime i prezime <input type="text" name="name" required></label>
+      <label>Email <input type="email" name="email" required></label>
+      <label>Telefon <input type="tel" name="phone" required></label>
+      <div class="button-row">
+        <a class="button" href="workshops.html">Nazad na radionice</a>
+        <button class="button" type="submit">Prijavi se</button>
+      </div>
+      <p id="form-status" role="status" class="muted"></p>
+    </form>
+  </main>
+  <script src="../js/layout.js"></script>
+  <script src="../js/glitter.js"></script>
+  <script src="../js/workshop-signup.js"></script>
+</body>
+</html>
